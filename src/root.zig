@@ -243,9 +243,10 @@ test "zsig - multi-signal scenario" {
     try testing.expect(usr2_received);
 }
 
-test {
-    _ = @import("signal_names.zig");
-    _ = @import("mask.zig");
-    _ = @import("handler.zig");
-    _ = @import("process.zig");
+comptime {
+    std.testing.refAllDecls(@import("signal_names.zig"));
+    std.testing.refAllDecls(@import("mask.zig"));
+    std.testing.refAllDecls(@import("handler.zig"));
+    std.testing.refAllDecls(@import("process.zig"));
+    std.testing.refAllDecls(@import("comprehensive_test.zig"));
 }
